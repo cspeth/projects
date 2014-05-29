@@ -11,7 +11,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.junit.Test;
 
-import de.csp.fileio.to.StandardFileIoTo;
+import de.csp.fileio.to.StandardCSVFileIoTo;
 
 public class CSVReaderTest {
 	
@@ -22,7 +22,7 @@ public class CSVReaderTest {
 		String fileName = "de/csp/fileio/csv/readertestsemicolon.csv";
 		InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(fileName);
 		CSVReader csvReader = new CSVReader();
-		StandardFileIoTo to;
+		StandardCSVFileIoTo to;
 		try {
 			to = csvReader.readFile(inputStream);
 			assertEquals(3, to.getHeader().size());
@@ -31,7 +31,7 @@ public class CSVReaderTest {
 			assertTrue(header.contains("header2"));
 			assertTrue(header.contains("header3"));
 			assertEquals(1, to.getData().size());
-			List<Object> dataSet = to.getData().get(0);
+			List<String> dataSet = to.getData().get(0);
 			assertEquals(3, dataSet.size());
 			assertTrue(dataSet.contains("data1"));
 			assertTrue(dataSet.contains("data2"));

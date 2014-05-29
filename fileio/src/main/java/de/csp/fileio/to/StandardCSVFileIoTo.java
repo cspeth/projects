@@ -3,17 +3,17 @@ package de.csp.fileio.to;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StandardFileIoTo {
+public class StandardCSVFileIoTo {
 
 	private List<String> header;
-	private List<List<Object>> data;
+	private List<List<String>> data;
 	
-	public StandardFileIoTo() {
+	public StandardCSVFileIoTo() {
 		this.header = new ArrayList<>();
 		this.data = new ArrayList<>();
 	}
 	
-	public StandardFileIoTo(List<String> header, List<List<Object>> allData) {
+	public StandardCSVFileIoTo(List<String> header, List<List<String>> allData) {
 		this.header = header;
 		this.data = allData;
 	}
@@ -27,13 +27,13 @@ public class StandardFileIoTo {
 	public void addHeader(String header) {
 		this.header.add(header);
 	}
-	public List<List<Object>> getData() {
+	public List<List<String>> getData() {
 		return data;
 	}
-	public void setData(List<List<Object>> data) {
+	public void setData(List<List<String>> data) {
 		this.data = data;
 	}
-	public void addDataSet(List<Object> dataSet) {
+	public void addDataSet(List<String> dataSet) {
 		this.data.add(dataSet);
 	}
 	

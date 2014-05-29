@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-public class StandardFileIoToTest {
+public class StandardCSVFileIoToTest {
 
 	@Test
 	public final void testSetHeader() {
@@ -15,7 +15,7 @@ public class StandardFileIoToTest {
 		header.add("A");
 		header.add("Header");
 		header.add("Test");
-		StandardFileIoTo to = new StandardFileIoTo();
+		StandardCSVFileIoTo to = new StandardCSVFileIoTo();
 		to.setHeader(header);
 		assertEquals(3, to.getHeader().size());
 		assertTrue(to.getHeader().contains("A"));
@@ -29,7 +29,7 @@ public class StandardFileIoToTest {
 		header.add("A");
 		header.add("Header");
 		header.add("Test");
-		StandardFileIoTo to = new StandardFileIoTo(header, null);
+		StandardCSVFileIoTo to = new StandardCSVFileIoTo(header, null);
 		String headerAppend = "Append";
 		to.addHeader(headerAppend);
 		assertEquals(4, to.getHeader().size());
@@ -41,15 +41,15 @@ public class StandardFileIoToTest {
 
 	@Test
 	public final void testSetData() {
-		List<List<Object>> data = new ArrayList<>();
-		List<Object> dataSet = new ArrayList<>();
-		dataSet.add(new Integer(1));
+		List<List<String>> data = new ArrayList<>();
+		List<String> dataSet = new ArrayList<>();
+		dataSet.add(new String("1"));
 		dataSet.add(new String("Data"));
-		StandardFileIoTo to = new StandardFileIoTo();
+		StandardCSVFileIoTo to = new StandardCSVFileIoTo();
 		data.add(dataSet);
 		to.setData(data);
 		assertEquals(1, to.getData().size());
-		List<Object> dataRet = to.getData().get(0);
+		List<String> dataRet = to.getData().get(0);
 		assertEquals(2, dataRet.size());
 		assertTrue(dataRet.contains(new Integer(1)));
 		assertTrue(dataRet.contains("Data"));
@@ -57,13 +57,13 @@ public class StandardFileIoToTest {
 
 	@Test
 	public final void testAddDataSet() {
-		List<Object> dataSet = new ArrayList<>();
-		dataSet.add(new Integer(1));
+		List<String> dataSet = new ArrayList<>();
+		dataSet.add(new String("1"));
 		dataSet.add(new String("Data"));
-		StandardFileIoTo to = new StandardFileIoTo();
+		StandardCSVFileIoTo to = new StandardCSVFileIoTo();
 		to.addDataSet(dataSet);
 		assertEquals(1, to.getData().size());
-		List<Object> dataRet = to.getData().get(0);
+		List<String> dataRet = to.getData().get(0);
 		assertEquals(2, dataRet.size());
 		assertTrue(dataRet.contains(new Integer(1)));
 		assertTrue(dataRet.contains("Data"));

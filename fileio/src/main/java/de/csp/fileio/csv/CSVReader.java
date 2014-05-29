@@ -12,16 +12,15 @@ import org.apache.commons.logging.LogFactory;
 
 import com.csvreader.CsvReader;
 
-import de.csp.fileio.to.StandardFileIoTo;
+import de.csp.fileio.to.StandardCSVFileIoTo;
 
 public class CSVReader {
 
 	private static Log LOGGER = LogFactory.getLog(CSVReader.class);
 	
-	
-	public StandardFileIoTo readFile(InputStream inputStream) throws IOException {
-		StandardFileIoTo returnTo = new StandardFileIoTo();
-		CsvReader reader = new CsvReader(inputStream, ';', Charset.defaultCharset());
+	public StandardCSVFileIoTo readFile(InputStream inputStream, char delimiter) throws IOException {
+		StandardCSVFileIoTo returnTo = new StandardCSVFileIoTo();
+		CsvReader reader = new CsvReader(inputStream, delimiter, Charset.defaultCharset());
 		reader.readHeaders();
 		String[] headersStrings = reader.getHeaders();
 		returnTo.setHeader(this.convertHeaders(headersStrings));
@@ -32,14 +31,21 @@ public class CSVReader {
 		return returnTo;
 	}
 	
-	public StandardFileIoTo readFile(String fileName) throws IOException {
-		InputStream inputStream = new FileInputStream(fileName);
-		return this.readFile(inputStream);
+	public StandardCSVFileIoTo readFile(InputStream inputStream) throws IOException {
+		return this.readFile(inputStream, ';');
 	}
 	
-	private List<Object> convertDataSet(String[] dataSet) {
-		List<Object> returnList = new ArrayList<>();
-		for(Object dataBlock:dataSet) {
+	public StandardCSVFileIoTo readFile(String fileName, char delimiter) throws IOException {
+		return this.readFile(new FileInputStream(fileName), ';');
+	}
+	
+	public StandardCSVFileIoTo readFile(String fileName) throws IOException {
+		return this.readFile(new FileInputStream(fileName), ';');
+	}
+	
+	private List<String> convertDataSet(String[] dataSet) {
+		List<String> returnList = new ArrayList<>();
+		for(String dataBlock:dataSet) {
 			returnList.add(dataBlock);
 		}
 		return returnList;

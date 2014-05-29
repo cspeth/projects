@@ -5,7 +5,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ StandardFileIoToTest.class })
+@SuiteClasses({ StandardCSVFileIoToTest.class })
 public class AllTestsForTo {
 
 }
