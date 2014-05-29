@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 import org.apache.commons.logging.Log;
@@ -18,11 +19,12 @@ public class CSVReaderTest {
 
 	@Test
 	public void testReadFile() {
-		String fileName = "readertestsemicolon.csv";
+		String fileName = "de/csp/fileio/csv/readertestsemicolon.csv";
+		InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(fileName);
 		CSVReader csvReader = new CSVReader();
 		StandardFileIoTo to;
 		try {
-			to = csvReader.readFile(fileName);
+			to = csvReader.readFile(inputStream);
 			assertEquals(3, to.getHeader().size());
 			List<String> header = to.getHeader();
 			assertTrue(header.contains("header1"));
