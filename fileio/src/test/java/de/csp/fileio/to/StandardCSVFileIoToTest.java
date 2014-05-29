@@ -52,7 +52,7 @@ public class StandardCSVFileIoToTest {
 		assertEquals(1, to.getData().size());
 		List<String> dataRet = to.getData().get(0);
 		assertEquals(2, dataRet.size());
-		assertTrue(dataRet.contains(new Integer(1)));
+		assertTrue(dataRet.contains(new String("1")));
 		assertTrue(dataRet.contains("Data"));
 	}
 
@@ -66,7 +66,7 @@ public class StandardCSVFileIoToTest {
 		assertEquals(1, to.getData().size());
 		List<String> dataRet = to.getData().get(0);
 		assertEquals(2, dataRet.size());
-		assertTrue(dataRet.contains(new Integer(1)));
+		assertTrue(dataRet.contains(new String("1")));
 		assertTrue(dataRet.contains("Data"));
 	}
 
