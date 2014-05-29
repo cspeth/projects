@@ -16,6 +16,11 @@
 		        <target>1.7</target>
 		    </configuration>
   		</plugin>
+  		<plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-release-plugin</artifactId>
+	        <version>2.5</version>
+	    </plugin>
   	</plugins>
   </build>
   <dependencies>
@@ -45,4 +50,7 @@
   		<version>2.0</version>
   	</dependency>
   </dependencies>
+  <scm>
+  	<url>scm:git:ssh://github.com/cspeth/projects.git</url>
+  </scm>
 </project>
