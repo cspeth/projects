@@ -16,8 +16,6 @@ import de.csp.fileio.to.StandardCSVFileIoTo;
 
 public class CSVReader {
 
-	private static Log LOGGER = LogFactory.getLog(CSVReader.class);
-	
 	public StandardCSVFileIoTo readFile(InputStream inputStream, char delimiter) throws IOException {
 		StandardCSVFileIoTo returnTo = new StandardCSVFileIoTo();
 		CsvReader reader = new CsvReader(inputStream, delimiter, Charset.defaultCharset());
