@@ -8,7 +8,7 @@
   <scm>
   	<connection>scm:git:ssh://git@github.com/cspeth/projects.git</connection>
   	<url>https://github.com/cspeth/projects</url>
-  	<tag>HEAD</tag>
+  	<tag>${project.version}</tag>
   </scm>
   <build>
   	<plugins>
