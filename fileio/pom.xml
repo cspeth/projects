@@ -5,6 +5,11 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>FileIO</name>
   <description>A Project for reading and/or writing files, like csv or pdf</description>
+  <scm>
+  	<connection>scm:git:ssh://git@github.com/cspeth/projects.git</connection>
+  	<url>https://github.com/cspeth/projects</url>
+  	<tag>HEAD</tag>
+  </scm>
   <build>
   	<plugins>
   		<plugin>
@@ -50,7 +55,5 @@
   		<version>2.0</version>
   	</dependency>
   </dependencies>
-  <scm>
-  	<url>scm:git:ssh://github.com/cspeth/projects.git</url>
-  </scm>
+  
 </project>
