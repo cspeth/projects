@@ -23,10 +23,10 @@ public class CSVReader {
 		CsvReader reader = new CsvReader(inputStream, delimiter, Charset.defaultCharset());
 		reader.readHeaders();
 		String[] headersStrings = reader.getHeaders();
-		returnTo.setHeader(this.convertHeaders(headersStrings));
+		returnTo.setHeader(this.convertData(headersStrings));
 		while(reader.readRecord()) {
 			String[] dataSet = reader.getValues();
-			returnTo.addDataSet(this.convertDataSet(dataSet));
+			returnTo.addDataSet(this.convertData(dataSet));
 		}
 		return returnTo;
 	}
@@ -43,7 +43,7 @@ public class CSVReader {
 		return this.readFile(new FileInputStream(fileName), ';');
 	}
 	
-	private List<String> convertDataSet(String[] dataSet) {
+	private List<String> convertData(String[] dataSet) {
 		List<String> returnList = new ArrayList<>();
 		for(String dataBlock:dataSet) {
 			returnList.add(dataBlock);
@@ -51,11 +51,4 @@ public class CSVReader {
 		return returnList;
 	}
 	
-	private List<String> convertHeaders(String[] headers) {
-		List<String> returnList = new ArrayList<>();
-		for(String header:headers) {
-			returnList.add(header);
-		}
-		return returnList;
-	}
 }
